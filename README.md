@@ -1,6 +1,6 @@
 # nortal-grunt-properties [![Build Status](https://secure.travis-ci.org/nortal/grunt-properties.png?branch=master)](http://travis-ci.org/nortal/grunt-properties)
 
-Converts java [.properties](http://en.wikipedia.org/wiki/.properties) files to javascript object. Usage example: configurations, translation files.
+> Converts java [.properties](http://en.wikipedia.org/wiki/.properties) files to javascript object. Usage example: configurations, translation files.
 
 
 ## Getting Started
