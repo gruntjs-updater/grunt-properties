@@ -1,19 +1,11 @@
 {
-  "name": "grunt-properties",
+  "name": "nortal-grunt-properties",
   "description": "Convert java .properties files to javascript objects",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/nortal/grunt-properties",
-  "author": {
-    "name": "Anton Stalnuhhin",
-    "email": "anton.stalnuhhin@gmail.com",
-    "url": "https://www.linkedin.com/profile/view?id=165018491"
-  },
+  "author": "Anton Stalnuhhin <anton.stalnuhhin@gmail.com> (https://www.linkedin.com/profile/view?id=165018491)",
   "contributors": [
-    {
-      "name": "Helder Santana",
-      "email": "helder.css@gmail.com",
-      "url": "http://heldr.com"
-    }
+    "Helder Santana <helder.css@gmail.com> (http://heldr.com)"
   ],
   "repository": {
     "type": "git",
@@ -24,13 +16,13 @@
   },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "https://github.com/nortal/grunt-properties/blob/master/LICENSE-MIT"
+      "type": "Apache 2.0",
+      "url": "https://github.com/nortal/grunt-properties/blob/master/LICENSE"
     }
   ],
   "main": "gruntfile.js",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "node_modules/.bin/grunt test"
@@ -47,9 +39,16 @@
     "grunt": "~0.4.1"
   },
   "keywords": [
-    "gruntplugin", "properties", "json", "translation"
+    "gruntplugin",
+    "properties",
+    "json",
+    "translation"
   ],
   "dependencies": {
     "properties-parser": "~0.1.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "license": "Apache 2.0"
 }
