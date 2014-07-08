@@ -1,4 +1,4 @@
-# grunt-properties [![Build Status](https://secure.travis-ci.org/nortal/grunt-properties.png?branch=master)](http://travis-ci.org/nortal/grunt-properties)
+# nortal-grunt-properties [![Build Status](https://secure.travis-ci.org/nortal/grunt-properties.png?branch=master)](http://travis-ci.org/nortal/grunt-properties)
 
 Converts java [.properties](http://en.wikipedia.org/wiki/.properties) files to javascript object. Usage example: configurations, translation files.
 
@@ -93,7 +93,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-  * 2014-07-08   v0.2.0   Initial release. (NORTAL)
+  * 2014-07-08   v0.2.0   Initial release. (NORTAL)
   * 2013-05-22   v0.1.0   Initial release. (heldr)
 
 ## Credits
