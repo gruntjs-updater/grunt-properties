@@ -1,9 +1,7 @@
-# grunt-properties [![Build Status](https://secure.travis-ci.org/heldr/grunt-properties.png?branch=master)](http://travis-ci.org/heldr/grunt-properties)
+# grunt-properties [![Build Status](https://secure.travis-ci.org/nortal/grunt-properties.png?branch=master)](http://travis-ci.org/nortal/grunt-properties)
 
-> Convert java [.properties](http://en.wikipedia.org/wiki/.properties) files to javascript
+Converts java [.properties](http://en.wikipedia.org/wiki/.properties) files to javascript object. Usage example: configurations, translation files.
 
-> "JavaScript isn't a great way to store configuration data. That's because the syntax is still that of a programming language, so you need to be sure you haven't introduced syntax errors. If you end up concatenating JavaScript files together, a syntax error in a single line breaks the overall application"
-*( Nicholas C. Zakas, [Maintainable JavaScript, Writing Readable Code, O'Reilly Media, May 2012](http://shop.oreilly.com/product/0636920025245.do))*
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -11,13 +9,13 @@ This plugin requires Grunt `~0.4.1`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-properties --save-dev
+npm install nortal-grunt-properties --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-properties');
+grunt.loadNpmTasks('nortal-grunt-properties');
 ```
 
 ## The "properties" task
@@ -28,58 +26,66 @@ In your project's Gruntfile, add a section named `properties` to the data object
 ```js
 grunt.initConfig({
   properties: {
-    page_config: {
+    english: {
       files: {
-        'tmp/page_config.js': ['test/fixtures/page_config.properties'],
-      },
-    },
-    page_color_config: {
+        'tmp/test_en.js': ['test/fixtures/module1_en.properties', 'test/fixtures/module2_en.properties']
+      }
+    }
+    german: {
+      // before and after the generated object
       options: {
-        namespace: 'mypage'
+        before: 'define("german_texts", [], function(){ return ',
+        after: '; });'
       },
       files: {
-        'tmp/page_color_config.js': ['test/fixtures/page_config.properties', 'test/fixtures/page_color_config.properties'],
-      },
-    },
-  },
+        'tmp/test_ge.js': ['test/fixtures/module1_ge.properties']
+      }
+    }
+  }
 })
 ```
 
 ### Options
 
-#### options.namespace
+#### options.before
 Type: `String`
-Default value: `'config'`
+Default value: `'window.MESSAGES = '`
 
-Use a previously defined namespace.
+Text before the generated object.
+
+#### options.after
+Type: `String`
+Default value: `';'`
+
+Text after the generated object.
 
 ### Usage Examples
 
-#### Default namespace config
+#### Default before and after
 ```js
 grunt.initConfig({
   properties: {
-    options: {},
     files: {
-      'tmp/page_config.js': ['test/fixtures/page_config.properties'],
+      'tmp/test_ge.js': ['test/fixtures/module1_ge.properties'],
     },
   },
 })
 ```
 
-#### Customized namespace
+#### Customized before and after (AMD)
 ```js
 grunt.initConfig({
   properties: {
-    page_color_config: {
+    german: {
       options: {
-        namespace: 'mypage'
+        before: 'define("german_texts", [], function(){ return ',
+        after: '; });'
       },
       files: {
-        'tmp/page_color_config.js': ['test/fixtures/page_config.properties', 'test/fixtures/page_color_config.properties'],
-      },
-    },
-  },
+        'tmp/test_ge.js': ['test/fixtures/module1_ge.properties']
+      }
+    }
+  }
 })
 ```
 
@@ -87,8 +93,10 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-  * 2013-05-22   v0.1.0   Initial release.
+  * 2014-07-08   v0.2.0   Initial release. (NORTAL)
+  * 2013-05-22   v0.1.0   Initial release. (heldr)
 
 ## Credits
+* GitHub [heldr/grunt-properties](https://github.com/heldr/grunt-properties)
 * [node-properties-parser](https://github.com/xavi-/node-properties-parser)
 * The awesome project [props2js](https://github.com/nzakas/props2js).
